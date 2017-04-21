@@ -3,7 +3,7 @@
 require('phantomjs-polyfill')
 
 // our apps starting point
-import './index.dev.ts'
+import './index.dev'
 
 // include angular mocks
 import 'angular-mocks'

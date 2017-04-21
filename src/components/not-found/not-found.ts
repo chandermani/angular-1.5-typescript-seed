@@ -14,7 +14,7 @@ export class NotFound implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: Function = NotFoundController
+  public controller: string = 'NotFoundController'
 
   /**
    * Template used with Component

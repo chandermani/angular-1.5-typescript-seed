@@ -14,7 +14,7 @@ export class DeveloperBar implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: Function = DeveloperBarController
+  public controller: string = 'DeveloperBarController'
 
   /**
    * Template used with Component

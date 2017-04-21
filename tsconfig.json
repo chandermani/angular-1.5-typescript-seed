@@ -12,16 +12,13 @@
     "node_modules",
     "builds",
     "dist",
-    "generator-templates",
-    "typings/main.d.ts",
-    "typings/main"
+    "generator-templates"
   ],
   "filesGlob": [
         "./src/**/*.ts",
         "!./src/**/*.spec.ts",
         "!./node_modules/**/*.ts",
-        "src/custom_typings.d.ts",
-        "typings/browser.d.ts"
+        "src/custom_typings.d.ts"
     ],
   "compileOnSave": false,
   "buildOnSave": false

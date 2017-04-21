@@ -18,7 +18,7 @@
     "url": "https://github.com/andrew-hamilton-dev/angular-1.5-typescript/issues"
   },
   "scripts": {
-    "postinstall": "node_modules/.bin/typings install && node_modules/.bin/webdriver-manager update --standalone",
+    "postinstall": "node_modules/.bin/webdriver-manager update --standalone",
     "start": "parallelshell 'npm run build' 'npm run api'",
     "build": "npm run dev:clean && npm run dev:copy && npm run docs:all && opener http://localhost:8000/webpack-dev-server/ && node ./webpack-server.js",
     "dev:clean": "rm -rf ./builds && mkdir builds",
@@ -35,32 +35,31 @@
     "test:e2e": "parallelshell 'node_modules/.bin/webdriver-manager start' 'node_modules/.bin/protractor ./protractor.config.js'",
     "generator": "node generator.js",
     "api": "json-server --watch ./src/db/db.json",
-    "celebrate": "spotify play the final countdown && spotify pos 60"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "npm run test"
-    }
+    "celebrate": "spotify play the final countdown && spotify pos 60",
+    "prepush": "npm test"
   },
   "dependencies": {
-    "@angular/router": "*",
-    "LogUnobtrusiveExtension": "git+ssh://git@github.com/lwhiteley/AngularLogExtender.git#0.0.10",
-    "angular": "^1.5.0",
-    "angular-animate": "^1.5.0",
-    "angular-aria": "^1.5.0",
-    "angular-material": "^1.0.5",
-    "angular-messages": "^1.5.0",
+    "LogUnobtrusiveExtension": "git://github.com/lwhiteley/AngularLogExtender.git#0.0.14",
+    "angular": "1.5.11",
+    "angular-animate": "1.5.11",
+    "angular-aria": "1.5.11",
+    "angular-material": "1.1.3",
+    "angular-messages": "1.5.11",
     "lodash": "^4.2.1",
     "ng-stats": "^2.5.2"
   },
   "devDependencies": {
-    "angular": "^1.5.3",
-    "angular-mocks": "^1.5.0",
+    "@types/angular-mocks": "1.5.9",
+    "@types/jasmine": "2.5.47",
+    "@types/jasmine-matchers": "0.2.30",
+    "@types/jquery": "2.0.41",
+    "@types/lodash": "4.14.62",
+    "angular-mocks": "1.6.4",
     "autoprefixer": "^6.3.3",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "ghooks": "^1.0.3",
     "html-loader": "^0.4.0",
+    "husky": "^0.13.3",
     "istanbul-instrumenter-loader": "^0.1.3",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
@@ -86,12 +85,11 @@
     "sassdoc": "^2.1.20",
     "string": "^3.3.1",
     "style-loader": "^0.13.0",
-    "ts-loader": "^0.8.0",
+    "ts-loader": "^2.0.3",
     "tslint": "^3.3.0",
     "tslint-loader": "^2.1.0",
-    "typedoc": "^0.3.12",
-    "typescript": "^1.7.5",
-    "typings": "^1.2.0",
+    "typedoc": "^0.5.10",
+    "typescript": "^2.2.2",
     "vorpal": "^1.10.8",
     "webdriver-manager": "^8.0.0",
     "webpack": "^1.12.13",

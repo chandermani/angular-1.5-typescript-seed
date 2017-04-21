@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 AppConfig.$inject = ['$locationProvider', 'logExProvider', '$compileProvider', '$mdIconProvider']
 
 /**

@@ -14,7 +14,7 @@ export class Home implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: Function = HomeController
+  public controller: string = 'HomeController'
 
   /**
    * Template used with Component

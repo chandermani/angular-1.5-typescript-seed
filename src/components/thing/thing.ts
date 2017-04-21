@@ -14,7 +14,7 @@ export class Thing implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: Function = ThingController
+  public controller: string = 'ThingController'
 
   /**
    * Template used with Component

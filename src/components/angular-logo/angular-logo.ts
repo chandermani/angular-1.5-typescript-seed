@@ -1,5 +1,5 @@
 import './angular-logo.scss'
-
+import * as angular from 'angular';
 /**
  *  Component Definition
  *
@@ -14,7 +14,7 @@ export class AngularLogo implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: Function = AngularLogoController
+  public controller: string = 'AngularLogoController'
 
   /**
    * Template used with Component

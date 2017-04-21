@@ -12,7 +12,7 @@ export class App implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: Function = AppController
+  public controller: string = 'AppController'
 
   /**
    * Template used with Component
