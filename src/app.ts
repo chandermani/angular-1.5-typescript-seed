@@ -1,3 +1,4 @@
+import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
  * Main Application - Component Definition
  *
@@ -12,27 +13,21 @@ export class App implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: string = 'AppController'
+  public controller: Injectable<IControllerConstructor> = AppController;
 
   /**
    * Template used with Component
    *
    * @type {string}
    */
-  public template: string = require('./app.html').toString()
+  public template: string = require('./app.html').toString();
 
   /**
    * Object containing pairs Directive Bindings for Component
    *
    * @type {Object}
    */
-  public bindings: { [binding: string]: string; } = {}
-
-  public $routeConfig: any = [
-    {path: '/', name: 'Home', component: 'home', useAsDefault: true},
-    {path: '/thing/:id', name: 'Thing', component: 'thing'},
-    {path: '/**', name: 'NotFound', component: 'notFound' }
-  ]
+  public bindings: { [binding: string]: string; } = {};
 }
 
 /**
@@ -41,7 +36,7 @@ export class App implements ng.IComponentOptions {
  * @export
  * @class AppController
  */
-export class AppController {
+export class AppController implements IController {
 
   /**
    * $inject to make angular DI minifiication safe
@@ -49,7 +44,7 @@ export class AppController {
    * @static
    * @type {Array<string>}
    */
-  public static $inject: Array<string> = ['$log', 'AngularServices', 'AppServices']
+  public static $inject: Array<string> = ['$log', 'AngularServices', 'AppServices'];
 
   /**
    * @param {*} $log Angular Log Service

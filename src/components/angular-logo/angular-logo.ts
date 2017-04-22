@@ -1,5 +1,6 @@
 import './angular-logo.scss'
 import * as angular from 'angular';
+import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
  *  Component Definition
  *
@@ -14,7 +15,7 @@ export class AngularLogo implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: string = 'AngularLogoController'
+  public controller: Injectable<IControllerConstructor> = AngularLogoController;
 
   /**
    * Template used with Component
@@ -40,7 +41,7 @@ export class AngularLogo implements ng.IComponentOptions {
  * @export
  * @class AngularLogoController
  */
-export class AngularLogoController {
+export class AngularLogoController implements IController {
 
   /**
    * $inject to make angular DI minifiication safe

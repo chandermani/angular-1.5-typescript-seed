@@ -1,5 +1,5 @@
 import './not-found.scss'
-
+import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
  *  Component Definition
  *
@@ -14,7 +14,7 @@ export class NotFound implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: string = 'NotFoundController'
+  public controller: Injectable<IControllerConstructor> = NotFoundController;
 
   /**
    * Template used with Component
@@ -35,7 +35,7 @@ export class NotFound implements ng.IComponentOptions {
   /**
    * Component Router lifecycle hook
    */
-  public $canActivate: any = function(): boolean {
+  public $canActivate: any = function (): boolean {
     return true
   }
 }
@@ -46,7 +46,7 @@ export class NotFound implements ng.IComponentOptions {
  * @export
  * @class NotFoundController
  */
-export class NotFoundController {
+export class NotFoundController implements IController {
 
   /**
    * $inject to make angular DI minifiication safe

@@ -1,5 +1,5 @@
 import './home.scss'
-
+import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
  *  Component Definition
  *
@@ -14,7 +14,7 @@ export class Home implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: string = 'HomeController'
+  public controller: Injectable<IControllerConstructor> = HomeController;
 
   /**
    * Template used with Component
@@ -47,7 +47,7 @@ export class Home implements ng.IComponentOptions {
  * @export
  * @class HomeController
  */
-export class HomeController {
+export class HomeController implements IController {
 
   /**
    * $inject to make angular DI minifiication safe

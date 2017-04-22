@@ -1,29 +1,31 @@
 // vendor imports
-import 'angular-material'
-import 'LogUnobtrusiveExtension/dist/log-ex-unobtrusive'
-import 'ng-stats'
+import 'angular';
+import 'angular-ui-router';
+import 'angular-material';
+import 'LogUnobtrusiveExtension/dist/log-ex-unobtrusive';
+import 'ng-stats';
 import * as angular from 'angular';
 
 // app css
-import './app.scss'
+import './app.scss';
 
 // app imports
-import Common from './common/common'
-import Components from './components/components'
+import Common from './common/common';
+import Components from './components/components';
 
-import {App} from './app'
-import AppConfig from './app.config'
+import {App} from './app';
+import AppConfig from './app.config';
 
 // top level angular module for app
 angular.module('app', [
   'ngMaterial',
   'log.ex.uo',
   'angularStats',
+  'ui.router',
   Common.name,
   Components.name,
 ])
 .config(AppConfig)
-.value('$routerRootComponent', 'app') // top level router component, contains the intial routes and views
 .component('app', new App())
 
 // start angular using code instead of ng-app declaration in the index.html

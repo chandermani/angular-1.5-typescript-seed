@@ -1,5 +1,5 @@
 import * as angular from 'angular';
-AppConfig.$inject = ['$locationProvider', 'logExProvider', '$compileProvider', '$mdIconProvider']
+AppConfig.$inject = ['$locationProvider', 'logExProvider', '$compileProvider', '$mdIconProvider', '$stateProvider', '$urlRouterProvider'];
 
 /**
  * Config function for Angular on the main App component
@@ -10,7 +10,14 @@ AppConfig.$inject = ['$locationProvider', 'logExProvider', '$compileProvider', '
  * @param {*} $compileProvider Angular Compiler Provider
  * @param {*} $mdIconProvider Angular Material Icon Provider
  */
-export default function AppConfig($locationProvider: any, logExProvider: any, $compileProvider: any, $mdIconProvider: any): void {
+export default function AppConfig($locationProvider: any, logExProvider: any, $compileProvider: any, $mdIconProvider: any, $stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider): void {
+
+  buildStates().forEach(s => {
+    $stateProvider.state(s);
+  });
+
+  $urlRouterProvider.when('', '/home');
+  $urlRouterProvider.otherwise('/home');
 
   // determine environment
   let isDevEnvironment: boolean = false
@@ -21,7 +28,7 @@ export default function AppConfig($locationProvider: any, logExProvider: any, $c
   // debug and logging config
   logExProvider.enableLogging(true, false)
   logExProvider.useDefaultLogPrefix(false)
-  logExProvider.overrideLogPrefix(function(className: string): string {
+  logExProvider.overrideLogPrefix(function (className: string): string {
     let $injector: any = angular.injector(['ng'])
     let $filter: any = $injector.get('$filter')
     let separator: any = '::'
@@ -42,5 +49,24 @@ export default function AppConfig($locationProvider: any, logExProvider: any, $c
 
   // set angualr material icon font set
   $mdIconProvider.defaultFontSet('Material Icons')
- }
+}
 
+function buildStates(): Array<ng.ui.IState> {
+  return [
+    {
+      name: 'hello',
+      url: '/hello',
+      template: '<home></home>'
+    },
+    {
+      name: 'thingid',
+      url: '/thing/{id}',
+      template: '<thing></thing>'
+    },
+    {
+      name: 'notFound',
+      url: '/notfound',
+      template: '<not></thing>'
+    }
+  ];
+}

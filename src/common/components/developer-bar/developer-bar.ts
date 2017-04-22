@@ -1,4 +1,5 @@
 import './developer-bar.scss'
+import { Injectable, IControllerConstructor, IController } from 'angular';
 
 /**
  *  Component Definition
@@ -14,7 +15,7 @@ export class DeveloperBar implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: string = 'DeveloperBarController'
+  public controller: Injectable<IControllerConstructor>= DeveloperBarController
 
   /**
    * Template used with Component
@@ -37,7 +38,7 @@ export class DeveloperBar implements ng.IComponentOptions {
  * @export
  * @class AngularLogoController
  */
-class DeveloperBarController {
+class DeveloperBarController implements IController {
 
   /**
    * $inject to make angular DI minifiication safe

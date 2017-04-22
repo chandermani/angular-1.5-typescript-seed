@@ -1,5 +1,5 @@
 import './thing.scss'
-
+import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
  *  Component Definition
  *
@@ -14,7 +14,7 @@ export class Thing implements ng.IComponentOptions {
    *
    * @type {Function}
    */
-  public controller: string = 'ThingController'
+  public controller: Injectable<IControllerConstructor> = ThingController;
 
   /**
    * Template used with Component
@@ -43,7 +43,7 @@ export class Thing implements ng.IComponentOptions {
  * @export
  * @class ThingController
  */
-export class ThingController {
+export class ThingController implements IController {
 
   /**
    * $inject to make angular DI minifiication safe
