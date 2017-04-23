@@ -1,8 +1,8 @@
 // import app component classes
-import {AngularLogo} from './angular-logo/angular-logo'
-import {Home} from './home/home'
-import {Thing} from './thing/thing'
-import {NotFound} from './not-found/not-found'
+import {AngularLogo} from './angular-logo/angular-logo';
+import {Home} from './home/home';
+import {Thing} from './thing/thing';
+import {NotFound} from './not-found/not-found';
 import * as angular from 'angular';
 
 // bundle component classes into angular components

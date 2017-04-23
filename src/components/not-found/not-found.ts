@@ -1,4 +1,4 @@
-import './not-found.scss'
+import './not-found.scss';
 import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
  *  Component Definition
@@ -21,7 +21,7 @@ export class NotFound implements ng.IComponentOptions {
    *
    * @type {string}
    */
-  public template: string = require('./not-found.html').toString()
+  public template: string = require('./not-found.html').toString();
 
   /**
    * Object containing pairs Directive Bindings for Component
@@ -30,13 +30,6 @@ export class NotFound implements ng.IComponentOptions {
    */
   public bindings: { [binding: string]: string; } = {
     $router: '<'
-  }
-
-  /**
-   * Component Router lifecycle hook
-   */
-  public $canActivate: any = function (): boolean {
-    return true
   }
 }
 
@@ -71,18 +64,5 @@ export class NotFoundController implements IController {
    */
   public $onInit(): void {
     this.$log.debug('onInit')
-  }
-
-  public $routerOnActivate(toRoute: any, fromRoute: any): void {
-    this.$log.debug('$routerOnActivate', toRoute, fromRoute)
-  }
-
-  public $routerCanDeactivate(): boolean {
-    this.$log.debug('$routerCanDeactivate', arguments)
-    return true
-  }
-
-  public $routerOnDeactivate(): void {
-    this.$log.debug('$routerOnDeactivate', arguments)
   }
 }

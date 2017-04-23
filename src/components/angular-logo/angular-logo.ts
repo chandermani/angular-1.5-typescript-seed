@@ -1,4 +1,4 @@
-import './angular-logo.scss'
+import './angular-logo.scss';
 import * as angular from 'angular';
 import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
@@ -22,7 +22,7 @@ export class AngularLogo implements ng.IComponentOptions {
    *
    * @type {string}
    */
-  public template: string = require('./angular-logo.html').toString()
+  public template: string = require('./angular-logo.html').toString();
 
   /**
    * Object containing pairs Directive Bindings for Component
@@ -49,7 +49,7 @@ export class AngularLogoController implements IController {
    * @static
    * @type {Array<string>}
    */
-  public static $inject: Array<string> = ['$log', 'AngularServices', 'AppServices']
+  public static $inject: Array<string> = ['$log', 'AngularServices', 'AppServices'];
 
   /**
    * image path to a logo asset
@@ -57,7 +57,7 @@ export class AngularLogoController implements IController {
    * @private
    * @type {string}
    */
-  private logoImagePath: string
+  private logoImagePath: string;
 
   /**
    * semantic version to display beneath the logo
@@ -65,7 +65,7 @@ export class AngularLogoController implements IController {
    * @private
    * @type {string}
    */
-  private version: string
+  private version: string;
 
   /**
    * @param {*} $log Angular Log Service
@@ -73,16 +73,16 @@ export class AngularLogoController implements IController {
    * @param {*} AppServices App Services Convenience Service
    */
   constructor(public $log: any, public AngularServices: any, public AppServices: any) {
-    this.$log = $log.getInstance('AngularLogo', false)
-    this.$log.debug('constructor')
-    this.logoImagePath = angular.isDefined(this.logoImagePath) ? this.logoImagePath : 'assets/angularjs-logo.png'
-    this.version = angular.isDefined(this.version) ? this.version : angular.version.full
+    this.$log = $log.getInstance('AngularLogo', false);
+    this.$log.debug('constructor');
+    this.logoImagePath = angular.isDefined(this.logoImagePath) ? this.logoImagePath : 'assets/angularjs-logo.png';
+    this.version = angular.isDefined(this.version) ? this.version : angular.version.full;
   }
 
   /**
    * life cycle hook (road to ng2)
    */
   public $onInit(): void {
-    this.$log.debug('onInit')
+    this.$log.debug('onInit');
   }
 }

@@ -12,12 +12,13 @@ AppConfig.$inject = ['$locationProvider', 'logExProvider', '$compileProvider', '
  */
 export default function AppConfig($locationProvider: any, logExProvider: any, $compileProvider: any, $mdIconProvider: any, $stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider): void {
 
-  buildStates().forEach(s => {
-    $stateProvider.state(s);
-  });
-
   $urlRouterProvider.when('', '/home');
+
   $urlRouterProvider.otherwise('/home');
+
+  buildStates().forEach(s => {
+    $stateProvider.state(s.name, s);
+  });
 
   // determine environment
   let isDevEnvironment: boolean = false
@@ -54,19 +55,19 @@ export default function AppConfig($locationProvider: any, logExProvider: any, $c
 function buildStates(): Array<ng.ui.IState> {
   return [
     {
-      name: 'hello',
-      url: '/hello',
+      name: 'home',
+      url: '/home',
       template: '<home></home>'
     },
     {
-      name: 'thingid',
+      name: 'thing',
       url: '/thing/{id}',
       template: '<thing></thing>'
     },
     {
       name: 'notFound',
       url: '/notfound',
-      template: '<not></thing>'
+      template: '<not-found></not-found>'
     }
   ];
 }

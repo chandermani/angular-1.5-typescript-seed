@@ -1,4 +1,4 @@
-import './thing.scss'
+import './thing.scss';
 import { Injectable, IControllerConstructor, IController } from 'angular';
 /**
  *  Component Definition
@@ -21,7 +21,7 @@ export class Thing implements ng.IComponentOptions {
    *
    * @type {string}
    */
-  public template: string = require('./thing.html').toString()
+  public template: string = require('./thing.html').toString();
 
   /**
    * Object containing pairs Directive Bindings for Component
@@ -33,7 +33,7 @@ export class Thing implements ng.IComponentOptions {
   }
 
   public $canActivate: any = (): boolean => {
-    return true
+    return true;
   }
 }
 
@@ -51,36 +51,26 @@ export class ThingController implements IController {
    * @static
    * @type {Array<string>}
    */
-  public static $inject: [string] = ['$log', 'AngularServices', 'AppServices']
-  public id: Number = 0
+  public static $inject: [string] = ['$log', 'AngularServices', 'AppServices', '$stateParams', '$state'];
+  public id: Number = 0;
 
   /**
    * @param {*} $log Angular Log Service
    * @param {*} AngularServices Angular Services Convenience Service
    * @param {*} AppServices App Services Convenience Service
    */
-  constructor(public $log: any, public AngularServices: any, public AppServices: any) {
-    this.$log = $log.getInstance('Thing', false)
-    this.$log.debug('constructor')
+  constructor(public $log: any, public AngularServices: any, public AppServices: any, public $stateParams: ng.ui.IStateParamsService, public $state: ng.ui.IStateService) {
+    this.$log = $log.getInstance('Thing', false);
+    this.$log.debug('constructor');
   }
 
   /**
    * life cycle hook (road to ng2)
    */
   public $onInit(): void {
-    this.$log.debug('onInit')
-  }
-
-  public $routerOnActivate($nextInstruction: any, $prevInstruction: any): void {
-    this.$log.debug('$routerOnActivate', $nextInstruction, $prevInstruction)
-    this.id = $nextInstruction.params.id
-  }
-
-  public $routerCanDeactivate(): void {
-    this.$log.debug('$routerCanDeactivate', arguments)
-  }
-
-  public $routerOnDeactivate(): void {
-    this.$log.debug('$routerOnDeactivate', arguments)
+    if (this.$stateParams.id === '0') {
+      this.$state.go('notFound');
+    }
+    this.id = this.$stateParams.id;
   }
 }
