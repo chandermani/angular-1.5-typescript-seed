@@ -12,7 +12,7 @@ var PATHS = {
 };
 
 module.exports = {
-  devtool: "source-map",
+  devtool: "eval-source-map",
   watch: true,
   cache: true,
   debug: true,
