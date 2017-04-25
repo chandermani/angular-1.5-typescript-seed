@@ -1,5 +1,11 @@
 [View Demo](https://angular-typescript-seed.surge.sh) Hosted by [Surge](http://surge.sh/)
 
+#### Fork Updates
+* Upgraded to Angular 1.6.4 and corresponding packages.
+* Using npm based typings.
+* Removed Component Routers for ng1, instead using uiRouter.
+
+
 ###Features
 * [Angular 1.5.5](https://angularjs.org/)
 * [Angular Material](https://material.angularjs.org/latest/) w/ [Material Icon Font](https://design.google.com/icons/)
